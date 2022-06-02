@@ -1,0 +1,19 @@
+name: Mirror the releases
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Mirror containerd/nerdctl
+      uses: kanzihuang/mirror-release-action@v1
+      with:
+        repository: containerd/nerdctl
+        tag: v0.20.0
+        patterns: nerdctl-0.20.0-linux-amd64.tar.gz nerdctl-full-0.20.0-linux-amd64.tar.gz SHA256SUMS
