@@ -17,3 +17,17 @@ jobs:
         repository: containerd/nerdctl
         tag: v0.20.0
         patterns: nerdctl-0.20.0-linux-amd64.tar.gz nerdctl-full-0.20.0-linux-amd64.tar.gz SHA256SUMS
+
+    - name: Mirror git-lfs/git-lfs
+      uses: kanzihuang/mirror-release-action@v1
+      with:
+        repository: git-lfs/git-lfs
+        tag: v3.2.0
+        patterns: git-lfs-linux-amd64-v3.2.0.tar.gz sha256sums.asc
+
+    - name: Mirror cli/cli
+      uses: kanzihuang/mirror-release-action@v1
+      with:
+        repository: cli/cli
+        tag: v2.11.3
+        patterns: gh_2.11.3_linux_amd64.tar.gz gh_2.11.3_checksums.txt 
